@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-   public class UserControlles : BaseApiController
+   public class UsersControlles : BaseApiController
     {
         private readonly DataContext _context;
-        public UserControlles(DataContext context)
+        public UsersControlles(DataContext context)
         {
             _context = context;
         }
