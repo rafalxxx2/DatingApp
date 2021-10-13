@@ -20,8 +20,7 @@ export class AccountService {
       map((repsone: User ) => {
         const user = repsone;
         if(user) {
-          localStorage.setItem('user', JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrenUser(user);
         }
       })
     );
@@ -31,14 +30,14 @@ export class AccountService {
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
       map((user: User) => {
         if(user) {
-          localStorage.setItem('user', JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrenUser(user);
         }
       })
     )
   }
 
   setCurrenUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
